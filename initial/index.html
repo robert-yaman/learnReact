@@ -2,12 +2,13 @@
 <html>
   <head>
     <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
     <div id="my-component"></div>
-    <script>
+    <script type="text/jsx">
       var ClickCounter = React.createClass({
         getInitialState: function(){
           return {count: 0}
@@ -20,20 +21,16 @@
 
         render: function(){
           return (
-          React.createElement('div', {},
-            React.createElement(
-              'button',
-              {onClick: this.click},
-              "CLICK ME"
-            ),
-            React.createElement('span', {}, this.state.count)
-            )
-           );
-          }
-        });
+            <div>
+              <button onClick={this.click}>CLICK ME</button>
+              <span>{this.state.count}</span>
+            </div>
+          );
+        }
+      });
 
       React.render(
-        React.createElement(ClickCounter, {}, ""),
+        <ClickCounter/>,
         document.getElementById('my-component')
       )
     </script>
