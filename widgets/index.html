@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <title>Widgets</title>
+  </head>
+  <body>
+    <h1>Widgets</h1>
+    <script type="text/jsx">
+      //autocomplete
+      function matches(longStr, shortStr) {
+        return shortStr == longStr.slice(0, shortStr.length);
+      };
+
+      var Autocompleter = React.createClass({
+        getInitialState: function(){
+          return { queryString : "" };
+        },
+
+        changeQueryString: function(event){
+          this.setState({ queryString: event.target.value });
+        },
+
+        completeWord: function(event){
+          this.setState({ queryString: event.target.textContent});
+          document.getElementById("autocompleter-input").focus();
+        },
+
+        render: function(){
+          var activeWords = this.props.words.filter(function (word){
+            return matches(word, this.state.queryString)
+          }.bind(this));
+
+          return (
+            <div>
+              <input
+              id="autocompleter-input"
+              type="text"
+              value={ this.state.queryString }
+              onChange={ this.changeQueryString } />
+              <ul>
+                {
+                  activeWords.map(function(word){
+                      return (<li onClick={ this.completeWord }>
+                        { word }
+                        </li>);
+                  }.bind(this))
+                }
+              </ul>
+            </div>
+          );
+        }
+      });
+
+      React.render(
+        <Autocompleter words={ [ "apple", "banana", "pear", "prune", "cucumber"] }/>,
+        document.getElementById("autocomplete")
+      )
+    </script>
+
+
+    <div id="autocomplete"></div>
+  </body>
+</html>
