@@ -9,7 +9,9 @@ var KeyComponent = React.createClass({
   },
 
   render: function() {
-    return (<p>{ this.props.noteName }</p>);
+    var playing = (this.state.playing) ? "playing" : "";
+    var className = "key " + playing;
+    return (<p className={className}>{ this.props.noteName }</p>);
   },
 
   _thisKeyPressed: function() {

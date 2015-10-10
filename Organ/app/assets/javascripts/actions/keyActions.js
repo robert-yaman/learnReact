@@ -11,5 +11,12 @@ keyActions = {
       actionType: "stop",
       note: note
     });
+  },
+
+  setNotes: function(notes) {
+    AppDispatcher.dispatch({
+      actionType: "set",
+      notes: notes
+    });
   }
 };

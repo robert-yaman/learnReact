@@ -1,6 +1,5 @@
 $(function() {
 
-
 $("body").keydown(function(event){
   console.log("keydown");
   if (event.which == 65) {
@@ -25,9 +24,9 @@ $("body").keydown(function(event){
     keyActions.startNote("gSharp");
   } else if (event.which == 87) {
     keyActions.startNote("aSharp");
-  } else if (event.which == 82) {
+  } else if (event.which == 69) {
     keyActions.startNote("cSharp");
-  } else if (event.which == 84) {
+  } else if (event.which == 82) {
     keyActions.startNote("dSharp");
   }
 });
@@ -56,9 +55,9 @@ $("body").keyup(function (event){
     keyActions.stopNote("gSharp");
   } else if (event.which == 87) {
     keyActions.stopNote("aSharp");
-  } else if (event.which == 82) {
+  } else if (event.which == 69) {
     keyActions.stopNote("cSharp");
-  } else if (event.which == 84) {
+  } else if (event.which == 82) {
     keyActions.stopNote("dSharp");
   }
 });

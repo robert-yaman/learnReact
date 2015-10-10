@@ -16,6 +16,10 @@ function stopNote(note) {
   }
 }
 
+function setNotes(notes) {
+  _store = notes;
+}
+
 root.KeyStore = $.extend({}, EventEmitter.prototype, {
   all : function () {
     return _store.slice();
@@ -23,7 +27,7 @@ root.KeyStore = $.extend({}, EventEmitter.prototype, {
 
   emitChange: function() {
     this.emit("change");
-  }
+  },
 });
 
 AppDispatcher.register(function(action) {
@@ -34,6 +38,10 @@ AppDispatcher.register(function(action) {
       break;
     case "stop":
       stopNote(action.note);
+      KeyStore.emitChange();
+      break;
+    case "set":
+      setNotes(action.notes);
       KeyStore.emitChange();
       break;
     default:
