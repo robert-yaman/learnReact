@@ -1,18 +1,24 @@
 (function(root) {
 
-var _store = {};
+var _store = [];
 
 function startNote(note) {
-  _store[note] = true;
+  var idx = _store.indexOf(note);
+  if (idx === -1) {
+    _store.push(note);
+  }
 }
 
 function stopNote(note) {
-  _store[note] = false;
+  var idx = _store.indexOf(note);
+  if (idx !== -1) {
+    _store.splice(idx);
+  }
 }
 
-root.MyStore = $.extend({}, EventEmitter.prototype, {
+root.KeyStore = $.extend({}, EventEmitter.prototype, {
   all : function () {
-    return _store.splice();
+    return _store.slice();
   },
 
   emitChange: function() {
@@ -24,11 +30,11 @@ AppDispatcher.register(function(action) {
   switch (action.actionType) {
     case "start":
       startNote(action.note);
-      MyStore.emitChange();
+      KeyStore.emitChange();
       break;
     case "stop":
       stopNote(action.note);
-      MyStore.emitChange();
+      KeyStore.emitChange();
       break;
     default:
       // no op

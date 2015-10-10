@@ -4,6 +4,24 @@ $("body").keydown(function(event){
   console.log("keydown");
   if (event.which == 65) {
     keyActions.startNote("a");
+  } else if (event.which == 83) {
+    keyActions.startNote("b");
+  } else if (event.which == 68) {
+    keyActions.startNote("c");
+  } else if (event.which == 70) {
+    keyActions.startNote("d");
+  } else if (event.which == 74) {
+    keyActions.startNote("e");
+  } else if (event.which == 75) {
+    keyActions.startNote("f");
+  } else if (event.which == 76) {
+    keyActions.startNote("g");
+  } else if (event.which == 186) {
+    keyActions.startNote("ahigh");
+  } else if (event.which == 73) {
+    keyActions.startNote("fSharp");
+  } else if (event.which == 79) {
+    keyActions.startNote("gSharp");
   }
 });
 
@@ -11,6 +29,24 @@ $("body").keyup(function (event){
   console.log("keyup");
   if (event.which == 65) {
     keyActions.stopNote("a");
+  } else if (event.which == 83) {
+    keyActions.stopNote("b");
+  } else if (event.which == 68) {
+    keyActions.stopNote("c");
+  } else if (event.which == 70) {
+    keyActions.stopNote("d");
+  } else if (event.which == 74) {
+    keyActions.stopNote("e");
+  } else if (event.which == 75) {
+    keyActions.stopNote("f");
+  } else if (event.which == 76) {
+    keyActions.stopNote("g");
+  } else if (event.which == 186) {
+    keyActions.stopNote("ahigh");
+  } else if (event.which == 73) {
+    keyActions.stopNote("fSharp");
+  } else if (event.which == 79) {
+    keyActions.stopNote("gSharp");
   }
 });
 
