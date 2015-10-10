@@ -1,5 +1,6 @@
 $(function() {
 
+
 $("body").keydown(function(event){
   console.log("keydown");
   if (event.which == 65) {
@@ -17,11 +18,17 @@ $("body").keydown(function(event){
   } else if (event.which == 76) {
     keyActions.startNote("g");
   } else if (event.which == 186) {
-    keyActions.startNote("ahigh");
+    keyActions.startNote("aHigh");
   } else if (event.which == 73) {
     keyActions.startNote("fSharp");
   } else if (event.which == 79) {
     keyActions.startNote("gSharp");
+  } else if (event.which == 87) {
+    keyActions.startNote("aSharp");
+  } else if (event.which == 82) {
+    keyActions.startNote("cSharp");
+  } else if (event.which == 84) {
+    keyActions.startNote("dSharp");
   }
 });
 
@@ -42,11 +49,17 @@ $("body").keyup(function (event){
   } else if (event.which == 76) {
     keyActions.stopNote("g");
   } else if (event.which == 186) {
-    keyActions.stopNote("ahigh");
+    keyActions.stopNote("aHigh");
   } else if (event.which == 73) {
     keyActions.stopNote("fSharp");
   } else if (event.which == 79) {
     keyActions.stopNote("gSharp");
+  } else if (event.which == 87) {
+    keyActions.stopNote("aSharp");
+  } else if (event.which == 82) {
+    keyActions.stopNote("cSharp");
+  } else if (event.which == 84) {
+    keyActions.stopNote("dSharp");
   }
 });
 

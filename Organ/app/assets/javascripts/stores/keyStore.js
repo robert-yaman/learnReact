@@ -12,7 +12,7 @@ function startNote(note) {
 function stopNote(note) {
   var idx = _store.indexOf(note);
   if (idx !== -1) {
-    _store.splice(idx);
+    _store.splice(idx, 1);
   }
 }
 
