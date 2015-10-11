@@ -29,6 +29,7 @@ Track.prototype.playRecording = function () {
     }
     if (currentNoteIdx >= this.roll.length) {
       clearInterval(this.interval);
+      delete this.interval
     }
   }.bind(this), 50);
 };
