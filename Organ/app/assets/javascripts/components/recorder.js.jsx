@@ -7,16 +7,16 @@ var Recorder = React.createClass({
     KeyStore.on("change", this._onChange);
   },
 
-  playRecording: function() {
-    this.state.track.playRecording();
-  },
-
   startRecording: function() {
     this.setState({isRecording : true});
     this.state.track.startRecording();
   },
 
   stopRecording: function() {
+    if (this.state.isRecording) {
+      TrackActions.addTrack(this.state.track);
+    }
+
     this.setState({isRecording : false});
     this.state.track.stopRecording();
   },
@@ -28,7 +28,6 @@ var Recorder = React.createClass({
         <span>{recordingMessage}</span>
         <button onClick={this.startRecording}>Start</button>
         <button onClick={this.stopRecording}>Stop</button>
-        <button onClick={this.playRecording}>Play</button>
       </div>
     );
   },

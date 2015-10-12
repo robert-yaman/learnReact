@@ -28,10 +28,14 @@ Track.prototype.playRecording = function () {
       currentNoteIdx ++;
     }
     if (currentNoteIdx >= this.roll.length) {
-      clearInterval(this.interval);
-      delete this.interval
+      this.stopRecording();
     }
   }.bind(this), 50);
+};
+
+Track.prototype.stopRecording = function () {
+  clearInterval(this.interval);
+  delete this.interval;
 };
 
 })();
